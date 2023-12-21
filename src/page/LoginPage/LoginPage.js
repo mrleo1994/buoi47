@@ -14,6 +14,8 @@ export default function LoginPage() {
       .then((res) => {
         message.success("success");
         dispatch(setInfoUser(res.data.content));
+        // lưu data vào localStorage
+        localStorage.setItem("USER_INFO", JSON.stringify(res.data.content));
         navigate("/");
       })
       .catch((err) => {
